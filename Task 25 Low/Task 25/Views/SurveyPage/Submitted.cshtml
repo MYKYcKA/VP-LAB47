@@ -1,0 +1,25 @@
+﻿@model Task_23.Models.QuizAnswerModel
+@{
+    ViewBag.Title = "Submitted";
+}
+
+<h1>Thanks for your participation @Model.Name @Model.Surname</h1>
+
+<label>Your favorite framework:</label>
+<p>@Model.Framework</p>
+
+<label>Your favrotite language:</label>
+<p>@Model.Language</p>
+
+<label>Your fruits:</label>
+@foreach (var el in Model.Fruits)
+{
+    if (el.Value)
+    {
+        <p>@el.Key</p>
+    }
+}
+@if (!Model.Fruits.Any(x => x.Value))
+{
+    <p>There is no fruits have been chosen</p>
+}

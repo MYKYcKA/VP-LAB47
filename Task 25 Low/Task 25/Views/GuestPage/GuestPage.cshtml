@@ -1,0 +1,59 @@
+﻿<script src="~/Scripts/MyScript.js"></script>
+<h1>Write your opinion:</h1>
+@model Task_23.Models.FeedbackModel
+
+
+<div>
+    @using (Html.BeginForm("GuestPage", "GuestPage", FormMethod.Post, new { @id = "feedbackFormId" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="editor-label">
+            @Html.LabelFor(m => m.AuthorName)
+        </div>
+
+        <div class="form-group">
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.AuthorName)
+                @Html.ValidationMessageFor(m => m.AuthorName)
+            </div>
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.AuthorSurname)
+        </div>
+        <div class="form-group">
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.AuthorSurname)
+                @Html.ValidationMessageFor(m => m.AuthorSurname)
+            </div>
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.FeedbackText)
+        </div>
+        <div class="form-group">
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.FeedbackText, 5, 280, null)
+                @Html.ValidationMessageFor(m => m.FeedbackText)
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    }
+</div>
+
+        <h1>Feedbacks:</h1>
+
+        <div id="Feedbacks">
+            @foreach (var x in ViewBag.feed)
+            {
+                <div>
+                    <p class="Name">@x.AuthorName @x.AuthorSurname</p>
+                    <p class="Feedback-Date">@x.FeedbackDate.ToString("dd/mm/yyyy")</p>
+                    <p class="Feedback-text">@x.FeedbackText</p>
+                    <hr class="Article-Line" />
+                </div>
+            }
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/FeedbackValidator")
+            @Scripts.Render("~/bundles/jqueryval")
+        }

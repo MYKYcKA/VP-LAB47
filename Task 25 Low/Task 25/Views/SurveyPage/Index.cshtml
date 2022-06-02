@@ -1,0 +1,78 @@
+﻿@model Task_23.Models.QuizAnswerModel
+
+@helper CheckboxList(string[] fruits)
+{
+    foreach (var key in Model.Fruits.Keys)
+    {
+        <br />
+        @Html.CheckBoxFor(m => m.Fruits[key], new { @checked = "checked" })
+        <label>@key</label>
+    }
+    <br />
+}
+
+@using (Html.BeginForm("Index", "SurveyPage", FormMethod.Post, new { @id = "answerFormId" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="editor-label">
+        @Html.LabelFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(m => m.Surname)
+    </div>
+    <div class="form-group">
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Surname)
+            @Html.ValidationMessageFor(m => m.Surname)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="editore-field">
+            <fieldset>
+                <legend>Choose your favorite JS framework</legend>
+
+                @Html.RadioButtonFor(m => m.Framework, "Angular")
+                <label>Angular</label><br />
+
+                @Html.RadioButtonFor(m => m.Framework, "React")
+                <label>React</label><br />
+
+                @Html.RadioButtonFor(m => m.Framework, "Vue.js")
+                <label>Vue.js</label>
+            </fieldset>
+            @Html.ValidationMessageFor(m => m.Framework, "", new { @class = "error" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="editore-field">
+            <label>Choose a Language:</label>
+            @Html.DropDownListFor(m => m.Language,
+            new SelectList(new string[] { "C#", "C++", "Java", "Ruby", "JavaScript", "GO", "F#" }), "")
+            <br />
+            @Html.ValidationMessageFor(m => m.Language, "", new { @class = "error" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="editore-field">
+            <label>Choose a fruit:</label>
+            @CheckboxList(new string[] { "Banana", "Apple", "Melon", "Watermelon", "Orange" })
+        </div>
+    </div>
+
+    <input type="submit" value="Submit" class="btn btn-primary" />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/FeedbackValidator")
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+@foreach (var x in Model)
+{
+    <div>
+        <p class="Article-Header">@x.Title</p>
+        <p class="Article-Text">@x.Text.Substring(0,200)</p>
+        <div class="col text-center">@Html.ActionLink("Детальніше", "Article", "Home",new { Id = x.Id}, new { @class = "btn btn-primary" })</div>
+    </div>
+    <hr class="Article-Line" />
+}

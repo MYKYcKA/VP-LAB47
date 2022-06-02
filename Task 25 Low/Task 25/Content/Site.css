@@ -1,0 +1,119 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.Logo-text.col-md-11 {
+    font-size: 30px;
+}
+
+footer {
+    text-align: center;
+}
+
+
+
+.Date {
+    text-align: right;
+}
+
+.Article-Text {
+    text-align: center;
+    text-indent: 20px;
+}
+
+.Article-Header {
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.Article-Line {
+    border-top: 2px solid rgba(7, 19, 70, 1);
+}
+
+.nav.nav-pills.nav-stacked.Sidebar {
+    position: fixed;
+}
+
+.Feedback-Date {
+    text-align: left;
+    font-size: 20px;
+}
+
+.Name{
+    margin-bottom: 0px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.Feedback-text {
+    font-size: 14px;
+}
+
+.Survey{
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.Survey-textarea {
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+.Survey-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.Lan-container, .Story-container{
+    margin: 20px auto auto;
+}
+
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+.error {
+    color: red;
+}
